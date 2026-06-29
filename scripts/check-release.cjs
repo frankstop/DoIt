@@ -31,4 +31,15 @@ if (!/^\d+\.\d+\.\d+$/.test(packageJson.version)) {
   process.exit(1);
 }
 
+const productName = packageJson.build?.productName;
+if (typeof productName !== 'string' || !productName.trim()) {
+  console.error('build.productName must be a non-empty string.');
+  process.exit(1);
+}
+
+if (/[.\s]$/.test(productName)) {
+  console.error('build.productName must not end with a period or whitespace because macOS helper bundle names will not match.');
+  process.exit(1);
+}
+
 console.log(`Release inputs are ready for ${expectedTag}.`);

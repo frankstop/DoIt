@@ -37,7 +37,7 @@
   },
   "build": {
     "appId": "com.doit.lifeadmin",
-    "productName": "DO IT.",
+    "productName": "DO IT",
     "files": [
       "dist/**/*",
       "dist-electron/**/*",
